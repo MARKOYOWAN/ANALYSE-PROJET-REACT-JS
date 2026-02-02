@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,32 +7,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'spinn-black': '#0a0a0a',   // Noir profond (fond)
-        'spinn-card': '#161616',    // Gris très sombre (cartes)
-        'spinn-border': '#262626',  // Gris moyen (bordures)
-        'spinn-muted': '#737373',   // Gris texte secondaire
+        // Le fond du site Spinn en version claire est un gris très doux
+        'spinn-bg': '#f5f5f7', 
+        // Texte noir profond pour un contraste maximal
+        'spinn-black': '#121212',
+        // Cartes blanches ou gris très clair pour l'effet de relief
+        'spinn-card': '#ffffff',
+        // Bordures fines et discrètes
+        'spinn-border': '#e5e7eb',
+        // Gris pour les textes secondaires
+        'spinn-muted': '#6b7280',
         
-        // Couleur d'accent : Bleu Acier (très pro, compatible avec le gris)
+        // Couleur d'accent (Bleu Acier ou Indigo léger)
         'spinn-accent': {
-          light: '#e2e8f0',
-          DEFAULT: '#94a3b8',
-          dark: '#475569',
+          DEFAULT: '#6366f1',
+          light: '#818cf8',
         },
-        // Couleur de succès (pour le score de conformité)
-        'spinn-success': '#10b981', 
       },
       animation: {
-        'glow': 'glow 4s infinite alternate',
+        'blob': 'blob 10s infinite',
       },
       keyframes: {
-        glow: {
-          '0%': { boxShadow: '0 0 5px rgba(148, 163, 184, 0.1)' },
-          '100%': { boxShadow: '0 0 20px rgba(148, 163, 184, 0.3)' },
+        blob: {
+          '0%': { transform: 'translate(0px, 0px) scale(1)', opacity: 0.2 },
+          '33%': { transform: 'translate(30px, -50px) scale(1.1)', opacity: 0.4 },
+          '66%': { transform: 'translate(-20px, 20px) scale(0.9)', opacity: 0.2 },
+          '100%': { transform: 'translate(0px, 0px) scale(1)', opacity: 0.2 },
         }
       }
     },
   },
-  plugins: [
-    require('tailwind-scrollbar')({ nocompatible: true }),
-  ],
+  plugins: [],
 };
