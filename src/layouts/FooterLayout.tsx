@@ -1,4 +1,4 @@
-import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { HiLightningBolt } from 'react-icons/hi';
 
 /**
@@ -11,43 +11,54 @@ interface FooterSection {
 
 /**
  * FooterLayout Component
- * Design sombre (High-Contrast) avec accents minimalistes.
+ * Mis à jour avec les coordonnées de Marko William.
  */
 const FooterLayout = () => {
-  // Récupération dynamique de l'année pour le copyright
   const currentYear = new Date().getFullYear();
 
-  // --- DONNÉES DES SECTIONS (Modulable) ---
+  // --- MENU DU FOOTER (Mis à jour) ---
   const sections: FooterSection[] = [
     {
-      title: "Produit",
+      title: "Navigation",
       links: [
-        { label: "Fonctionnalités", href: "#" },
-        { label: "Documentation", href: "#" },
-        { label: "Statut API", href: "#" },
+        { label: "Tableau de bord", href: "/" },
+        { label: "Nouvelle Analyse", href: "/analyse" },
+        { label: "Historique", href: "/historique" },
       ],
     },
     {
-      title: "Légal",
+      title: "Ressources",
       links: [
+        { label: "Documentation AI", href: "#" },
+        { label: "Support Technique", href: "#" },
         { label: "Confidentialité", href: "#" },
-        { label: "Conditions d'utilisation", href: "#" },
-        { label: "Mentions Légales", href: "#" },
       ],
     },
   ];
 
-  // --- RÉSEAUX SOCIAUX ---
+  // --- RÉSEAUX SOCIAUX (GitHub, LinkedIn, WhatsApp mis à jour) ---
   const socialLinks = [
-    { Icon: FaGithub, href: "#", label: "GitHub" },
-    { Icon: FaTwitter, href: "#", label: "Twitter" },
-    { Icon: FaLinkedin, href: "#", label: "LinkedIn" },
+    { 
+      Icon: FaGithub, 
+      href: "https://github.com/MARKOYOWAN", 
+      label: "GitHub" 
+    },
+    { 
+      Icon: FaLinkedin, 
+      href: "https://www.linkedin.com/in/marko-william-ratsimbazafy/", 
+      label: "LinkedIn" 
+    },
+    { 
+      Icon: FaWhatsapp, 
+      href: "https://wa.me/261347178475", // Format international pour WhatsApp
+      label: "WhatsApp" 
+    },
   ];
 
   return (
     <footer className="bg-black border-t border-white/5 relative overflow-hidden">
       
-      {/* EFFET DE LUMIÈRE (Glow) : Apporte de la profondeur au fond noir */}
+      {/* EFFET DE LUMIÈRE (Glow) */}
       <div 
         className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full filter blur-[120px] pointer-events-none" 
         aria-hidden="true"
@@ -69,11 +80,11 @@ const FooterLayout = () => {
               </span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs font-medium">
-              Solution d'analyse sémantique haute performance pour la conformité réglementaire et l'intégrité des données.
+              Système intelligent conçu par Marko William pour l'analyse de conformité sémantique et réglementaire.
             </p>
           </div>
 
-          {/* --- COLONNES 2 & 3 : LIENS (Mapping) --- */}
+          {/* --- COLONNES 2 & 3 : MENU --- */}
           {sections.map((section) => (
             <div key={section.title}>
               <h4 className="text-white font-black mb-6 text-[11px] uppercase tracking-[0.3em]">
@@ -94,7 +105,7 @@ const FooterLayout = () => {
             </div>
           ))}
 
-          {/* --- COLONNE 4 : SOCIAL CONNECT --- */}
+          {/* --- COLONNE 4 : CONNECT --- */}
           <div>
             <h4 className="text-white font-black mb-6 text-[11px] uppercase tracking-[0.3em]">
               Connect
@@ -104,6 +115,8 @@ const FooterLayout = () => {
                 <a
                   key={label}
                   href={href}
+                  target="_blank" // Ouvre dans un nouvel onglet
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-11 h-11 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-white/30 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
                 >
@@ -111,19 +124,22 @@ const FooterLayout = () => {
                 </a>
               ))}
             </div>
+            <p className="mt-4 text-[10px] font-bold text-white/20 uppercase tracking-widest">
+              Contact : +261 34 71 784 75
+            </p>
           </div>
         </div>
 
-        {/* --- BARRE INFÉRIEURE : COPYRIGHT & TECH STATUS --- */}
+        {/* --- BARRE INFÉRIEURE --- */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] uppercase tracking-[0.2em] font-black text-white/30">
-            © {currentYear} ANALYSE.AI — SYSTÈME DE CONTRÔLE RÉGLEMENTAIRE
+            © {currentYear} ANALYSE.AI — DEVELOPED BY MARKO WILLIAM
           </p>
           
           <div className="flex items-center gap-2 px-4 py-2 bg-white/[0.03] rounded-full border border-white/5">
             <HiLightningBolt className="text-yellow-500 animate-pulse" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/50">
-              Powered by Next-Gen Analysis
+              High Performance Mode Active
             </span>
           </div>
         </div>
