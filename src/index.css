@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-spinn-bg text-spinn-text-bright antialiased;
+    /* Rendu des polices plus fin et moderne */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Personnalisation de la sélection de texte */
+  ::selection {
+    @apply bg-spinn-accent/30 text-white;
+  }
+}
+
+@layer components {
+  /* Effet de verre (Glassmorphism) réutilisable */
+  .glass-card {
+    @apply bg-spinn-card backdrop-blur-xl border border-spinn-border shadow-2xl;
+  }
+
+  /* Bouton style Spinn */
+  .btn-primary {
+    @apply relative overflow-hidden px-6 py-3 rounded-xl font-bold transition-all 
+           active:scale-95 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)];
+  }
+}
+
+@layer utilities {
+  /* Animation de délai pour les blobs */
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Barre de défilement stylisée (Minimaliste Acier) */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-spinn-border rounded-full hover:bg-spinn-muted transition-colors;
+  }
+}
+
+/* Effet de grain subtil (Optionnel - pour le look Dribbble) */
+.bg-grain {
+  position: relative;
+}
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
