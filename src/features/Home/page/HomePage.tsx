@@ -25,7 +25,7 @@ const Home = () => {
       </section>
 
       {/* Le Composant d'Analyse (Zone d'action) */}
-      <section className="px-6">
+      <section id="analyzer-section" className="px-6 scroll-mt-32">
         <TextAnalyzer />
       </section>
     </div>
