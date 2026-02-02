@@ -1,5 +1,6 @@
 // src/pages/Home/Home.tsx
 
+import AnalysisHistory from "../components/AnalysisHistory";
 import TextAnalyzer from "../components/TextAnalyzer";
 
 const Home = () => {
@@ -27,6 +28,17 @@ const Home = () => {
       {/* Le Composant d'Analyse (Zone d'action) */}
       <section id="analyzer-section" className="px-6 scroll-mt-32">
         <TextAnalyzer />
+      </section>
+
+
+      {/* SECTION HISTORIQUE */}
+      <section id="history-section"  className="px-6 max-w-7xl mx-auto w-full">
+        <div className="mb-10 text-left">
+          <h2 className="text-4xl font-black tracking-tighter text-black mb-2">Historique des Analyses</h2>
+          <p className="text-black/40 font-medium uppercase tracking-widest text-xs">Archives de conformité réglementaire</p>
+        </div>
+
+        <AnalysisHistory />
       </section>
     </div>
   );
